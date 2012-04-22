@@ -1,2 +1,25 @@
-<h1>Users#show</h1>
-<p>Signed in as <%= current_user.email %></p>
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+    	<div class="info">
+	      <h1>
+	        <%= gravatar_for @user %>
+	        <%= @user.name %>
+	      </h1>
+	      <h2>
+	      	<%= @user.title %>
+	      	<br/>
+	      	<%= @user.dept %>
+	      </h2>
+	    </div>
+      <%= link_to "Edit", edit_user_path(current_user) %>
+    </section>
+  </aside>
+</div>
+
+<div class="projects">
+	<h1>What I'm working on:</h1>
+	<%= @user.projects %>	
+</div>
+<%= link_to "Edit", edit_user_path(current_user) %>

@@ -1,2 +1,23 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+<%= form_for(@user) do |f| %>	
+	<%= @user.errors.messages if @user.errors.any? %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+
+      <%= f.label :dept %>
+      <%= f.text_field :dept %>
+
+      <%= f.label :projects %>
+      <%= f.text_field :projects %>
+      <br/>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+<% end %>

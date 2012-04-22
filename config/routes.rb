@@ -7,6 +7,7 @@ Emplify::Application.routes.draw do
   get "welcome/index"
 
   devise_for :users
+  resources :users
 
   authenticated :user do
     root to: 'users#show'
