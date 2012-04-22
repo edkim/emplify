@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   def show
   	#@user = User.find(params[:id])	 #change this to User.find(params[:id])
   	@user = current_user
+    # @search = User.search do
+    #   fulltext params[:search]
+    # end
+    # @users = @search.results 
   end
 
   def edit
@@ -17,5 +21,12 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def index
+    @search = User.search do
+      fulltext params[:search]
+    end
+    @users = @search.results
   end
 end

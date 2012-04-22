@@ -1,6 +1,12 @@
 <% provide(:title, @user.name) %>
+<%= form_tag users_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span6">
     <section>
     	<div class="info">
 	      <h1>
