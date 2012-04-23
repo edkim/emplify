@@ -1,8 +1,5 @@
 Emplify::Application.routes.draw do
 
-  get "users/show"
-
-  get "users/edit"
 
   get "welcome/index"
 
