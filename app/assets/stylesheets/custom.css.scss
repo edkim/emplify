@@ -33,7 +33,7 @@ h2 {
 
 .nav
 {
-	color:#fff
+  color:#fff
 }
 
 #logo {
@@ -54,7 +54,7 @@ h2 {
 
 aside {
   section {
-    padding: 10px 0;
+    padding: 5px 0;
     border-top: 1px solid $grayLighter;
     &:first-child {
       border: 0;
@@ -102,5 +102,21 @@ aside {
   font-size: 12px;
   line-height: 18px;  
   padding: 8.5px;
-    
+  margin: 5px 0px;  
+  
+}
+
+/* users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
 }

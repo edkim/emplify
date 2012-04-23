@@ -1,6 +1,12 @@
 <% provide(:title, @user.name) %>
+<% form_tag users_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span6">
     <section>
     	<div class="info">
 	      <h1>
@@ -12,9 +18,9 @@
 	      	<br/>
 	      	<%= @user.dept %>
 	      </h2>
-	    </div>
-      <%= link_to "Edit", edit_user_path(current_user) %>
+	    </div>      
     </section>
+    <%= link_to "Edit", edit_user_path(@user) if @user == current_user %>
   </aside>
 </div>
 
@@ -22,4 +28,4 @@
 	<h1>What I'm working on:</h1>
 	<%= @user.projects %>	
 </div>
-<%= link_to "Edit", edit_user_path(current_user) %>
+<%= link_to "Edit", edit_user_path(@user) if @user == current_user %>

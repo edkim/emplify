@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
-  def show
-  	#@user = User.find(params[:id])	 #change this to User.find(params[:id])
-  	@user = current_user
+  before_filter :correct_user,   only: [:edit, :update, :destroy]
+
+  def show  
+    if params[:id]
+      @user = User.find(params[:id])      
+    else
+      @user = current_user
+    end
   end
 
   def edit
-  	@user = current_user
+    @user = current_user
   end
 
   def update
@@ -18,4 +23,20 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def index
+    @users = User.search(params[:search])
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+    redirect_to root_path
+  end
+
+  private
+    def correct_user
+      redirect_to(root_path) unless current_user == User.find(params[:id])
+    end
+
 end
