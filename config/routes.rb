@@ -1,6 +1,8 @@
 Emplify::Application.routes.draw do
 
   get "welcome/index"
+  get "linkedin/callback"
+  get "linkedin/index"
 
   devise_for :users
   resources :users
