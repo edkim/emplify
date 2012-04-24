@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
 
 	def self.search(search)
 	  if search
-	    find(:all, :conditions => ['name LIKE ? OR title LIKE ? OR dept LIKE ? OR projects LIKE ?', 
+	    find(:all, :conditions => ['lower(name) LIKE ? OR lower(title) LIKE ? 
+	    	OR lower(dept) LIKE ? OR lower(projects) LIKE ?', 
 	    	"%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
 	  else
 	    find(:all)
