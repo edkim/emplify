@@ -1,9 +1,15 @@
 <% provide(:title, @user.name) %>
+<% flash.each do |name, msg| %>
+	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+	    <a class="close" data-dismiss="alert">×</a>
+	    <%= msg %>
+	  </div>
+	<% end %>
 <div class="row">
   <aside class="span6">
     <section>
     	<div class="info">
-	      <h1>
+	      <h1>	      	
 	        <%= gravatar_for @user %>
 	        <%= @user.name %>
 	      </h1>

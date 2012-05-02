@@ -28,6 +28,7 @@ class LinkedinController < ApplicationController
     end       
     
     @connection1 = client.connections.first
+    @connections = client.connections
     @profile = client.profile(:fields => %w(positions))
     @last_position = @profile.positions.first
     @last_title = @last_position.title

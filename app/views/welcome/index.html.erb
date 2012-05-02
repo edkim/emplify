@@ -1,4 +1,10 @@
 <div class="center hero-unit">
+	<% flash.each do |name, msg| %>
+	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+	    <a class="close" data-dismiss="alert">×</a>
+	    <%= msg %>
+	  </div>
+	<% end %>
 	<h1>Welcome to Emplify!</h1>
 	<h2>Please sign up to get started</h2>
 	<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
